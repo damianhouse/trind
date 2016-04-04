@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  searcher_id: 
+  interests: MyText
+  description: MyText
+  location: MyText
+  success: false
+
+two:
+  user_id: 
+  searcher_id: 
+  interests: MyText
+  description: MyText
+  location: MyText
+  success: false

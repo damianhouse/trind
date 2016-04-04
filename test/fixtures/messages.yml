@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 
+  searcher_id: 
+  user_id: 
+  message: MyText
+  viewed: false
+
+two:
+  event_id: 
+  searcher_id: 
+  user_id: 
+  message: MyText
+  viewed: false
