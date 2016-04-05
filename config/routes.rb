@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :messages, except: [:new, :edit]
   resources :events, except: [:new, :edit]
   resources :users, except: [:new, :edit]
+  root 'events#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
