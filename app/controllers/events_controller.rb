@@ -4,6 +4,10 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    # @users = []
+    # @events.each do |e|
+    #   @users << User.find(e.user_id)
+    # end
   end
 
   # GET /events/1
