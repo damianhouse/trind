@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-d = User.create!(name: "Damian House", email: "damianhouse@gmail.com", password: "password")
-q = User.create!(name: "Quentin Hill", email: "quentinhill@gmail.com", password: "password")
+d = User.create!(name: "Damian House", email: "damianhouse@gmail.com", password: "password", photo_url: "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/12115789_10153348777188931_7848934254023919923_n.jpg?oh=5221f3666037c5b3c794862a91cc1048&oe=57BAAF6A")
+q = User.create!(name: "Quentin Hill", email: "quentinhill@gmail.com", password: "password", photo_url: "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/12115789_10153348777188931_7848934254023919923_n.jpg?oh=5221f3666037c5b3c794862a91cc1048&oe=57BAAF6A")
 e = Event.create!(user_id: d.id, searcher_id: q.id, interests: "coffee", description: "Grab some coffee", location: "Cocoa Cinnamon", success: true )
 Message.create!(event_id: e.id, searcher_id: q.id, user_id: d.id, message: "I would love to chat over a latte!", viewed: true)
 
-a = User.create!(name: "Ashley Thompson", email: "ashley@gmail.com", password: "password")
-b = User.create!(name: "Bob White", email: "bobwhite@gmail.com", password: "password")
+a = User.create!(name: "Ashley Thompson", email: "ashley@gmail.com", password: "password", photo_url: "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/12115789_10153348777188931_7848934254023919923_n.jpg?oh=5221f3666037c5b3c794862a91cc1048&oe=57BAAF6A")
+b = User.create!(name: "Bob White", email: "bobwhite@gmail.com", password: "password", photo_url: "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/12115789_10153348777188931_7848934254023919923_n.jpg?oh=5221f3666037c5b3c794862a91cc1048&oe=57BAAF6A")
 e2 = Event.create!(user_id: d.id, searcher_id: q.id, interests: "coffee", description: "Grab some coffee", location: "Starbucks", success: true )
 Message.create!(event_id: e2.id, searcher_id: q.id, user_id: d.id, message: "I would love to chat over a latte!", viewed: true)
 
