@@ -7,20 +7,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def login
-    @current_user = User.find_by_email(params[:email])
-    if @current_user && @current_user.authenticate(params[:password])
-      create_token(@current_user)
-      render json: @current_user
-    else
-    render json: "Wrong email and password combination. Please try again."
-    end
-  end
-
-  def logout
-    @current_user.token = nil
-    render json: "Logout Successful"
-  end
 
   # GET /users/1
   # GET /users/1.json
@@ -61,9 +47,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def create_token(user)
-      user.token = SecureRandom.hex
-    end
 
     def set_user
       @user = User.find(params[:id])
