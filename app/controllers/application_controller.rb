@@ -8,10 +8,9 @@ class ApplicationController < ActionController::API
   end
 
   private def authenticate
-    unless params[:token].nil?
+    if params[:token]
       @current_user = User.find_by(token: params[:token])
-    end
-    unless @current_user
+    else
       render json: "User must be logged in!"
     end
   end

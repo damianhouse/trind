@@ -1,40 +1,28 @@
 class SessionsController < ApplicationController
-  before_action :authenticate, only: [:destroy]
-  def new
-  end
-
-  def create
+  before_action :authenticate, except: [:login]
+  before_action :set_user, only: [:logout]
+  def login
     @current_user = User.find_by_email(params[:email])
     if @current_user && @current_user.authenticate(params[:password])
-      create_token(@current_user)
-      render json: @current_user
+      create_token(@current_user) if @current_user.token.nil?
       @current_user.save
     else
-    render json: "Wrong email and password combination. Please try again."
+      render json: "Wrong email and password combination. Please try again."
     end
 
-    if params[:email]
-      user = User.find_by(email: params[:email])
-      user_auth = user && user.authenticate(params[:password])
-    else
-      auth = request.env["omniauth.auth"]
-      user = User.find_by(github_user_name: auth[:info]["nickname"])
-      user_auth = true
-    end
-    if user && user_auth
-      session[:user_id] = user.id
-      session[:person_type] = user.person_type
-      if user.person_type
-        redirect_to root_url, notice: "Signed in!"
   end
 
-  def destroy
+  def logout
     @current_user.token = nil
+    @current_user.save
     render json: "Logout Successful"
   end
-end
 
-private
-def create_token(user)
-  user.token = SecureRandom.hex
+  private
+  def set_user
+    @current_user = User.find_by(token: params[:token])
+  end
+  def create_token(user)
+    user.token = SecureRandom.hex
+  end
 end

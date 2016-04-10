@@ -1,19 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
   resources :messages, except: [:new, :edit]
   resources :events, except: [:new, :edit]
   resources :users, except: [:new, :edit]
   root 'events#index'
 
-  get 'login' => 'sessions#create'
-  post 'login' => 'sessions#create'
+  get 'login' => 'sessions#login'
+  post 'login' => 'sessions#login'
 
-  get 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#logout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
