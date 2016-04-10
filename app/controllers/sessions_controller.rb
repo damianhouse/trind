@@ -22,7 +22,5 @@ class SessionsController < ApplicationController
   def set_user
     @current_user = User.find_by(token: params[:token])
   end
-  def create_token(user)
-    user.token = SecureRandom.hex
-  end
+
 end

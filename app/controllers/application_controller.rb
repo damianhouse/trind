@@ -14,4 +14,7 @@ class ApplicationController < ActionController::API
       render json: "User must be logged in!"
     end
   end
+  def create_token(user)
+    user.token = SecureRandom.hex
+  end
 end
