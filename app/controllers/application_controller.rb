@@ -7,7 +7,8 @@ class ApplicationController < ActionController::API
    request.format = :json
   end
 
-  private def authenticate
+  private
+  def authenticate
     if params[:token]
       @current_user = User.find_by(token: params[:token])
     else
