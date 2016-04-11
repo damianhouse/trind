@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy]
-  before_action :authenticate
   # GET /messages
   # GET /messages.json
   def index
