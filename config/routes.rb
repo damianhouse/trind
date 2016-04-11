@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
   resources :messages, except: [:new, :edit]
   resources :events, except: [:new, :edit]
   resources :users, except: [:new, :edit]
   root 'events#index'
 
-  get 'login' => 'users#login'
-  post 'login' => 'users#login'
+  get 'login' => 'sessions#login'
+  post 'login' => 'sessions#login'
 
-  get 'logout' => 'users#logout'
+  get 'logout' => 'sessions#logout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

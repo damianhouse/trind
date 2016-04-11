@@ -6,11 +6,16 @@ class ApplicationController < ActionController::API
   def set_default_response_format
    request.format = :json
   end
-  
-  private def authenticate
-    @current_user = User.find_by(token: params[:token])
-    unless @current_user
+
+  private
+  def authenticate
+    if params[:token]
+      @current_user = User.find_by(token: params[:token])
+    else
       render json: "User must be logged in!"
     end
+  end
+  def create_token(user)
+    user.token = SecureRandom.hex
   end
 end
