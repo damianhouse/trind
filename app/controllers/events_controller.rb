@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     #   @users << User.find(e.user_id)
     # end
   end
+
   def memories
     @events = Event.where(user_id: @current_user.id)
     render json: @events

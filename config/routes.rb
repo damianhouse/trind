@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conversations, except: [:new, :edit]
   resources :messages, except: [:new, :edit]
   resources :events, except: [:new, :edit]
   resources :users, except: [:new, :edit]

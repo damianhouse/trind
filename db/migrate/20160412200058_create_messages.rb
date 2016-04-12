@@ -1,10 +1,10 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.integer :event_id
+      t.integer :conversation_id
       t.integer :author
-      t.text :message
-      t.boolean :viewed
+      t.text :body
+      t.boolean :viewed, default: false
 
       t.timestamps null: false
     end
