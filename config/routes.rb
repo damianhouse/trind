@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#logout'
 
+  get 'oauth' => 'sessions#oauth'
   post 'oauth' => 'sessions#oauth'
 
   get 'memories' => 'events#memories'
