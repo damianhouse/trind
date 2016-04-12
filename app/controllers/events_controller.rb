@@ -5,14 +5,20 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    # @users = []
-    # @events.each do |e|
-    #   @users << User.find(e.user_id)
-    # end
   end
 
   def memories
-    @events = Event.where(user_id: @current_user.id)
+    @events = []
+    poster = Event.where(user_id: @current_user.id)
+    searcher = Event.where(searcher_id: @current_user.id)
+    searcher.each do |s|
+      @events << s
+    end
+    @events
+    poster.each do |r|
+      @events << r
+    end
+    @events.sort
     render json: @events
   end
   # GET /events/1

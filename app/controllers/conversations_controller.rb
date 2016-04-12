@@ -1,11 +1,20 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :update, :destroy]
-
+  before_action :authenticate
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
-
+    @conversations = []
+    recipient = Conversation.where(recipient_id: @current_user.id)
+    sender = Conversation.where(sender_id: @current_user.id)
+    sender.each do |s|
+      @conversations << s
+    end
+    @conversations
+    recipient.each do |r|
+      @conversations << r
+    end
+    @conversations.sort
     render json: @conversations
   end
 
