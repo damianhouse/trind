@@ -23,8 +23,8 @@ class UsersController < ApplicationController
       render json: @user.errors, status: :unprocessable_entity
     else
       create_token(@user)
+      @user.save
     end
-    render json: @user
   end
 
   # PATCH/PUT /users/1

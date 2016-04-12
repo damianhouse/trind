@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
    else
      render json: "Wrong email and password combination. Please try again."
    end
-
+   @current_user
  end
 
   def logout
