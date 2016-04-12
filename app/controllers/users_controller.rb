@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @current_user && @current_user.authenticate(params[:password])
       create_token(@current_user)
       render json: @current_user
+      @current_user.save
     else
     render json: "Wrong email and password combination. Please try again."
     end
