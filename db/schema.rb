@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412204421) do
+ActiveRecord::Schema.define(version: 20160412232835) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "event_id"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20160412204421) do
     t.text     "interests"
     t.text     "description"
     t.text     "location"
-    t.boolean  "success"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "title"
+    t.boolean  "posterinterested"
+    t.boolean  "searcherinterested"
   end
 
   create_table "messages", force: :cascade do |t|

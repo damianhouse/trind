@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def oauth
-    @current_user = User.find_by(uid: params[:uid])
+    @current_user = User.find_by(uid: params[:uid]) || User.find_by(email: params[:email])
     if @current_user
       create_token(@current_user) if @current_user.token.nil?
       @current_user.save
