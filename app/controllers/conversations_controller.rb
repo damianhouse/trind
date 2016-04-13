@@ -4,16 +4,7 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = []
-    recipient = Conversation.where(recipient_id: @current_user.id)
-    sender = Conversation.where(sender_id: @current_user.id)
-    sender.each do |s|
-      @conversations << s
-    end
-    @conversations
-    recipient.each do |r|
-      @conversations << r
-    end
+    @conversations = Conversation.where("sender_id = ? OR recipient_id = ?", @current_user, @current_user)
     @conversations.sort
     render json: @conversations
   end
