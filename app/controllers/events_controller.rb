@@ -8,8 +8,7 @@ class EventsController < ApplicationController
   end
 
   def memories
-    @events = Event.where("user_id = ? OR searcher_id = ?", @current_user, @current_user)
-    @events.sort
+    @events = Event.where("posterinterested = ? OR searcherinterested = ?", @current_user, @current_user)
     render json: @events
   end
   # GET /events/1

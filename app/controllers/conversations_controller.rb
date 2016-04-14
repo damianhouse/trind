@@ -4,9 +4,8 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.where("sender_id = ? OR recipient_id = ?", @current_user, @current_user)
-    @conversations.sort
-    render json: @conversations
+    @conversations = @current_user.conversations
+    @current_user
   end
 
   # GET /conversations/1
