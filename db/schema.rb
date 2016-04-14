@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20160412232835) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "title"
-    t.boolean  "posterinterested"
-    t.boolean  "searcherinterested"
+    t.integer  "posterinterested"
+    t.integer  "searcherinterested"
   end
 
   create_table "messages", force: :cascade do |t|

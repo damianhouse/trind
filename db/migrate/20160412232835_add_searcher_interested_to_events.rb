@@ -1,5 +1,5 @@
 class AddSearcherInterestedToEvents < ActiveRecord::Migration
   def change
-    add_column :events, :searcherinterested, :boolean
+    add_column :events, :searcherinterested, :integer
   end
 end
