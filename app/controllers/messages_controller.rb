@@ -55,6 +55,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:event_id, :searcher_id, :user_id, :message, :viewed)
+      params.require(:message).permit(:conversation_id, :author, :body, :viewed)
     end
 end
