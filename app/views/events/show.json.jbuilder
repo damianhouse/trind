@@ -1,2 +1,2 @@
 json.event @event :title, :interests, :description, :location
-  json.user e.user, :name, :summary, :photo_url
+  json.user user, :name, :summary, :photo_url
