@@ -11,6 +11,13 @@ class EventsController < ApplicationController
     @events = Event.where("posterinterested = ? OR searcherinterested = ?", @current_user, @current_user)
     render json: @events
   end
+
+  def my_events
+    yesterday = Date.today.yesterday
+    @events = Event.where("user_id = ? AND created_at >= ?", @current_user, yesterday)
+    render json: @events
+
+  end
   # GET /events/1
   # GET /events/1.json
   def show
