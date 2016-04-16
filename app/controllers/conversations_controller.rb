@@ -11,7 +11,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
-    render json: @conversation
+    @messages = @conversation.messages.sort_by(&:updated_at)
   end
 
   # POST /conversations
