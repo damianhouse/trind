@@ -12,11 +12,9 @@ gem 'bcrypt'
 
 gem 'rails_12factor'
 
-gem 'rack-cors', require: 'rack/cors'
+gem 'paperclip', "~> 4.3"
 
-gem 'omniauth-github'
-gem 'omniauth-facebook'
-gem "omniauth-google-oauth2"
+gem 'rack-cors', require: 'rack/cors'
 
 group :production do
   gem 'pg'

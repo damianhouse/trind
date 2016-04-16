@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412232835) do
+ActiveRecord::Schema.define(version: 20160416174044) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "event_id"
@@ -52,10 +52,14 @@ ActiveRecord::Schema.define(version: 20160412232835) do
     t.text     "photo_url"
     t.integer  "thumbs_up"
     t.integer  "thumbs_down"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "token"
-    t.integer  "uid",             limit: 8
+    t.integer  "uid",                        limit: 8
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
   end
 
 end
