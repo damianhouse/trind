@@ -12,6 +12,19 @@ class UsersController < ApplicationController
   def show
   end
 
+  def likes
+    if params[:liked]
+      @user = User.find(params[:user_id])
+      @user.thumbs_up += 1
+      @user.save
+    elsif params[:liked] == false
+      @user = User.find(params[:user_id])
+      @user.thumbs_up -= 1
+      @user.save
+    end
+    render json: @user
+  end
+
   # POST /users
   # POST /users.json
   def create
@@ -52,6 +65,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :born_on, :summary, :photo_url, :thumbs_up, :thumbs_down, :token)
+      params.require(:user).permit(:name, :email, :password, :born_on, :summary, :photo_url, :thumbs_up, :thumbs_down, :token, :liked, :user_id)
     end
 end

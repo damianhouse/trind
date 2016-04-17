@@ -39,7 +39,7 @@ Message.create!(conversation_id: c5.id, body: "I would love to chat over a latte
 Message.create!(conversation_id: c5.id, body: "Sounds good lets meet!", author: d.id, viewed: true)
 
 e6 = Event.create!(title: "High and Dry", user_id: q.id, searcher_id: b.id, interests: "long walk", description: "My fake plastic love But I can't help the feeling", location: "beach", searcherinterested: q.id, posterinterested: b.id)
-c6 = Conversation.create!(event_id: e6.id, sender_id: q.id, recipient_id: d.id )
+c6 = Conversation.create!(event_id: e6.id, sender_id: q.id, recipient_id: b.id )
 Message.create!(conversation_id: c6.id, body: "I would love to chat over a latte!", author: b.id, viewed: true)
 Message.create!(conversation_id: c6.id, body: "Sounds good lets meet!", author: q.id, viewed: true)
 
