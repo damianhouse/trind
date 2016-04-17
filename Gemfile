@@ -14,12 +14,15 @@ gem 'rails_12factor'
 
 gem 'paperclip', "~> 4.3"
 
+gem 'aws-sdk', '~> 1.6'
+
 gem 'rack-cors', require: 'rack/cors'
 
 group :production do
   gem 'pg'
   gem 'puma'
 end
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'

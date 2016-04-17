@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :conversations_as_sender, class_name: "Conversation", foreign_key: :sender_id, dependent: :destroy
   has_many :conversations_as_recipient, class_name: "Conversation", foreign_key: :recipient_id, dependent: :destroy
   validates_confirmation_of :password
+  has_attached_file :uploaded_file
+  validates_attachment_content_type :uploaded_file, content_type: /\Aimage\//
 
   def conversations
     conversations = (conversations_as_sender + conversations_as_recipient)
