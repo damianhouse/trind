@@ -19,11 +19,10 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(conversation_params)
 
-    if @conversation.save
-      render json: @conversation, status: :created, location: @conversation
-    else
+    unless @conversation.save
       render json: @conversation.errors, status: :unprocessable_entity
     end
+    @conversation
   end
 
   # PATCH/PUT /conversations/1

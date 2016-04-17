@@ -7,8 +7,9 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def memories
-    @events = @current_user.memories
+  def stashed
+    yesterday = Date.today.yesterday
+    @events = Event.where("searcherinterested = ? AND created_at >= ?", @current_user, yesterday)
   end
 
   def my_events

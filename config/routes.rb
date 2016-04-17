@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'oauth' => 'sessions#oauth'
   post 'oauth' => 'sessions#oauth'
 
-  get 'memories' => 'events#memories'
+  get 'stashed' => 'events#stashed'
 
   get 'my_events' => 'events#my_events'
 
