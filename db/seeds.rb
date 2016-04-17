@@ -41,9 +41,9 @@ Message.create!(conversation_id: c4.id, body: "Sounds perfect. We shoot about th
 Message.create!(conversation_id: c4.id, body: "I'll see you at the driving range.", author: d.id, viewed: true)
 
 e5 = Event.create!(title: "Bowling", user_id: q.id, searcher_id: a.id, interests: "bowling", description: "Looking to knock some pins over with another amateur", location: "AMC Bowling, Cary, NC", searcherinterested: q.id, posterinterested: a.id )
-c5 = Conversation.create!(event_id: e5.id, sender_id: q.id, recipient_id: d.id )
+c5 = Conversation.create!(event_id: e5.id, sender_id: q.id, recipient_id: a.id )
 Message.create!(conversation_id: c5.id, body: "I haven't bowled in forever. What time do you want to go?", author: q.id, viewed: true)
-Message.create!(conversation_id: c5.id, body: "Around 8 is a good time for me. I'll see you then?", author: d.id, viewed: true)
+Message.create!(conversation_id: c5.id, body: "Around 8 is a good time for me. I'll see you then?", author: a.id, viewed: true)
 Message.create!(conversation_id: c5.id, body: "Perfect. I'm the guy with the orange pants and the rose in his clear bowling ball.", author: q.id, viewed: true)
 
 e6 = Event.create!(title: "Durham Bull's Game", user_id: q.id, searcher_id: b.id, interests: "baseball relax", description: "I have an extra ticket and don't want to go alone", location: "Durham Bull's Athletic Park", searcherinterested: q.id, posterinterested: b.id)
@@ -51,7 +51,7 @@ c6 = Conversation.create!(event_id: e6.id, sender_id: q.id, recipient_id: b.id )
 Message.create!(conversation_id: c6.id, body: "What time can I meet you there? I'll buy you a beer since you have my ticket.", author: b.id, viewed: true)
 Message.create!(conversation_id: c6.id, body: "The game is at 7 so 6:45? The beer sounds great. I'll meet you at the entrance.", author: q.id, viewed: true)
 
-e7 = Event.create!(title: "Pedicures", user_id: ak.id, searcher_id: a.id, interests: "manicure pedicure", description: "I have a reservation at the spa for two at 11 if anyone wants to join me", location: "The Umstead Hotel and Spa, Cary, NC", searcherinterested: a.id, posterinterested: a.id )
+e7 = Event.create!(title: "Pedicures", user_id: ak.id, searcher_id: a.id, interests: "manicure pedicure", description: "I have a reservation at the spa for two at 11 if anyone wants to join me", location: "The Umstead Hotel and Spa, Cary, NC", searcherinterested: a.id, posterinterested: ak.id )
 c7 = Conversation.create!(event_id: e7.id, sender_id: a.id, recipient_id: ak.id )
 Message.create!(conversation_id: c7.id, body: "Just what I need and I couldn't get a reservation. I'll buy you a mimosa", author: a.id, viewed: true)
 Message.create!(conversation_id: c7.id, body: "Great. I'll take mine without the orange juice please. This is going to be great.", author: ak.id, viewed: true)
