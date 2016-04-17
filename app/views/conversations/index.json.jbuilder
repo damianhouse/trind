@@ -1,10 +1,10 @@
 json.conversations @conversations do |conversation|
-  if conversation.sender.name != @current_user.name
+  if conversation.sender_id != @current_user.id
     json.conversation_id conversation.id
     json.sender_name conversation.sender.name
     json.sender_photo_url conversation.sender.photo_url
     json.last_message conversation.messages.last.body
-  elsif conversation.recipient_name != @current_user.name
+  elsif conversation.recipient_id != @current_user.id
     json.conversation_id conversation.id
     json.recipient_name conversation.recipient.name
     json.recipient_photo_url conversation.recipient.photo_url
