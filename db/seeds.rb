@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-d = User.create!(name: "Damian House", email: "damianhouse@gmail.com", password: "password", photo_url: "https://scontent.xx.fbcdn.net/hprofile-xta1/v/t1.0-1/p50x50/12115789_10153348777188931_7848934254023919923_n.jpg?oh=5221f3666037c5b3c794862a91cc1048&oe=57BAAF6A")
+d = User.create!(name: "Damian House", email: "damianhouse@gmail.com", password: "password", photo_url: "https://s3.amazonaws.com/trind/IMG_2705.jpg")
 q = User.create!(name: "Daniel Pipkin", email: "dpip@gmail.com", password: "password", photo_url: "https://scontent-iad3-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/12647473_954176544677195_4038522416851246298_n.jpg?oh=3c4657a3ca4c29d472bd4214e8587048&oe=577D91E2")
 e = Event.create!(title: "All I Need", user_id: d.id, searcher_id: q.id, interests: "coffee", description: "Her green plastic watering can For her fake Chinese rubber plant", location: "Cocoa Cinnamon", searcherinterested: d.id, posterinterested: q.id )
 c = Conversation.create!(event_id: e.id, sender_id: q.id, recipient_id: d.id )
