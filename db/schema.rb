@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416174044) do
+ActiveRecord::Schema.define(version: 20160418193848) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "event_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160416174044) do
     t.string   "title"
     t.integer  "posterinterested"
     t.integer  "searcherinterested"
+    t.boolean  "success"
   end
 
   create_table "messages", force: :cascade do |t|
