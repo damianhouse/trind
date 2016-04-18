@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :events_as_searcher, class_name: "Event", foreign_key: :searcher_id, dependent: :destroy
   has_many :events, dependent: :destroy
   validates :email, presence: true, uniqueness: true
   has_many :messages, through: :conversations
