@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   def stashed
     yesterday = Date.today.yesterday
     @events = Event.where("searcherinterested = ? AND created_at >= ?", @current_user, yesterday)
-    render json: @events
   end
 
   def my_events
