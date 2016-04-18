@@ -5,7 +5,7 @@ json.conversations @conversations do |conversation|
     if conversation.sender.photo_url
       json.sender_photo_url conversation.sender.photo_url
     end
-    if conversation.messages
+    if conversation.messages.last
       json.last_message conversation.messages.last.body
     end
   elsif conversation.recipient_id != @current_user.id
@@ -14,7 +14,7 @@ json.conversations @conversations do |conversation|
     if conversation.sender.photo_url
       json.sender_photo_url conversation.sender.photo_url
     end
-    if conversation.messages
+    if conversation.messages.last
       json.last_message conversation.messages.last.body
     end
   end
