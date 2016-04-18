@@ -1,2 +1,4 @@
-json.event @event, :user_id, :title, :interests, :description, :location
-  json.user @event.user, :name, :summary, :photo_url
+json.events @events do |e|
+  json.event e, :user_id, :title, :interests, :description, :location
+  json.user e.user, :name, :summary, :photo_url
+end
