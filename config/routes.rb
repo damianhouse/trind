@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'my_events' => 'events#my_events'
 
   post 'likes' => 'users#likes'
+
+  get 'total_messages_not_viewed' => 'conversations#total_messages_not_viewed'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
