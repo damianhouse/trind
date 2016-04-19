@@ -25,7 +25,7 @@ class ConversationsController < ApplicationController
     @conversations = @current_user.conversations
     @not_viewed = 0
     @conversations.each do |c|
-      @not_viewed += c.how_many_not_viewed unless c.how_many_not_viewed == nil
+      @not_viewed += c.how_many_not_viewed(@current_user) unless c.how_many_not_viewed(@current_user) == nil
     end
   end
   def create
