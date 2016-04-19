@@ -5,15 +5,28 @@ class ConversationsController < ApplicationController
   # GET /conversations.json
   def index
     @conversations = @current_user.conversations
+    @not_viewed = 0
+    @conversations.each do |c|
+      @not_viewed += c.how_many_not_viewed unless c.how_many_not_viewed == nil
+    end
   end
   # GET /conversations/1
   # GET /conversations/1.json
   def show
     @messages = @conversation.messages.sort_by(&:updated_at)
-    @not_viewed = @conversation.how_many_not_viewed
+    @messages.each do |m|
+      m.save && (m[:viewed] = true) if m.viewed == false
+    end
   end
   # POST /conversations
   # POST /conversations.json
+  def total_messages_not_viewed
+    @conversations = @current_user.conversations
+    @not_viewed = 0
+    @conversations.each do |c|
+      @not_viewed += c.how_many_not_viewed unless c.how_many_not_viewed == nil
+    end
+  end
   def create
     @conversation = Conversation.new(conversation_params)
 
