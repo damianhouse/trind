@@ -47,11 +47,10 @@ class UsersController < ApplicationController
     else
       render json: @current_user.errors, status: :unprocessable_entity
     end
-    if @current_user.uploaded_file
+    if user_params[:uploaded_file]
       @current_user.photo_url = @current_user.uploaded_file.url
       @current_user.save
     end
-    @current_user
   end
 
   # DELETE /users/1
