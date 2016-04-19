@@ -12,8 +12,8 @@ class ConversationsController < ApplicationController
   # GET /conversations/1.json
   def show
     @messages = @conversation.messages.sort_by(&:updated_at)
+    @not_viewed = @conversation.how_many_not_viewed
   end
-
   # POST /conversations
   # POST /conversations.json
   def create
@@ -52,6 +52,6 @@ class ConversationsController < ApplicationController
     end
 
     def conversation_params
-      params.require(:conversation).permit(:event_id, :sender_id, :recipient_id)
+      params.require(:conversation).permit(:event_id, :sender_id, :recipient_id, :not_viewed)
     end
 end

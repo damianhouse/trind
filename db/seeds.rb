@@ -13,9 +13,9 @@ ak = User.create!(name: "Anna Kendrick", email: "ak@gmail.com", password: "passw
 
 e = Event.create!(title: "Cake and Coffee", user_id: d.id, searcher_id: q.id, interests: "coffee cake", description: "Looking for someone to have a coffee and chat. Maybe some cake.", location: "Cocoa Cinnamon", searcherinterested: d.id, posterinterested: q.id )
 c = Conversation.create!(event_id: e.id, sender_id: q.id, recipient_id: d.id )
-Message.create!(conversation_id: c.id, body: "I would love to chat over a latte!", author: q.id, viewed: true)
-Message.create!(conversation_id: c.id, body: "Sounds good. I can be there by 1.", author: d.id, viewed: true)
-Message.create!(conversation_id: c.id, body: "I'll see you at 1. I'm wearing a pink shirt.", author: q.id, viewed: true)
+Message.create!(conversation_id: c.id, body: "I would love to chat over a latte!", author: q.id)
+Message.create!(conversation_id: c.id, body: "Sounds good. I can be there by 1.", author: d.id)
+Message.create!(conversation_id: c.id, body: "I'll see you at 1. I'm wearing a pink shirt.", author: q.id)
 
 e2 = Event.create!(title: "Wall climb", user_id: d.id, searcher_id: q.id, interests: "wall climb", description: "Looking for someone to wall climb with this evening. I'm an interemediate climber.", location: "Triangle Rock Club, Cary, NC", searcherinterested: a.id, posterinterested: b.id)
 c2 = Conversation.create!(event_id: e2.id, sender_id: a.id, recipient_id: b.id )

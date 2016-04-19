@@ -5,10 +5,7 @@ class Conversation < ActiveRecord::Base
   has_many :messages, dependent: :destroy
 
   def how_many_not_viewed
-    counter = 0
-    @current_user.messages do |m|
-      counter += 1 if m.viewed == nil
-    end
-    counter
+    messages.reduce(0) {|sum, m| sum += 1 if m.viewed == false}
   end
+
 end
