@@ -15,7 +15,7 @@ class ConversationsController < ApplicationController
   def show
     @messages = @conversation.messages.sort_by(&:updated_at)
     @messages.each do |m|
-      (m[:viewed] = true) && m.save if m.viewed == false
+      (m[:viewed] = true) && m.save if m.viewed == false && @current_user.id != m.author
     end
   end
   # POST /conversations
