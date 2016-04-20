@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   def logout
     @current_user.token = nil
     @current_user.save
-    render json: "Logout Successful"
+
   end
 
   private
