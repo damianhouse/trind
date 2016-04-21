@@ -13,7 +13,7 @@ json.conversations @conversations do |conversation|
     json.conversation_id conversation.id
     json.sender_name conversation.recipient.name
     if conversation.sender.photo_url
-      json.sender_photo_url conversation.sender.photo_url
+      json.sender_photo_url conversation.recipient.photo_url
     end
     if conversation.messages.last
       json.last_message conversation.messages.last.body
