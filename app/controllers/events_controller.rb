@@ -4,12 +4,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where(success: nil)
   end
 
   def stashed
     yesterday = Date.today.yesterday
     @events = Event.where("searcherinterested = ? AND created_at >= ?", @current_user, yesterday)
+  end
+
+  def experienced
+    @events = Event.where("searcher_id = ? AND success = ?", @current_user.id, true)
+    render json: @events
   end
 
   def my_events
