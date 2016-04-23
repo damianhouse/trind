@@ -13,18 +13,18 @@ class SessionsController < ApplicationController
     @current_user
   end
 
-  def oauth
-    @current_user = User.find_by(uid: params[:uid]) || User.find_by(email: params[:email])
-    if @current_user
-      create_token(@current_user) if @current_user.token.nil?
-      @current_user.save
-    else
-      @current_user = User.create!(uid: params[:uid], email: params[:email], name: params[:name], photo_url: params[:photo_url], password: params[:token], password_confirmation: params[:token])
-      create_token(@current_user)
-      @current_user.save
-    end
-    @current_user
-  end
+  # def oauth
+  #   @current_user = User.find_by(uid: params[:uid]) || User.find_by(email: params[:email])
+  #   if @current_user
+  #     create_token(@current_user) if @current_user.token.nil?
+  #     @current_user.save
+  #   else
+  #     @current_user = User.create!(uid: params[:uid], email: params[:email], name: params[:name], photo_url: params[:photo_url], password: params[:token], password_confirmation: params[:token])
+  #     create_token(@current_user)
+  #     @current_user.save
+  #   end
+  #   @current_user
+  # end
 
   def logout
     @current_user.token = nil
