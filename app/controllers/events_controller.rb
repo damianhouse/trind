@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   def stashed
     yesterday = Date.today.yesterday
-    @events = Event.where("searcherinterested = ? AND created_at >= ?", @current_user, yesterday)
+    @events = Event.where("searcherinterested = ? AND updated_at >= ?", @current_user, yesterday)
   end
 
   def experienced
