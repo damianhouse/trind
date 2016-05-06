@@ -16,6 +16,8 @@ gem 'paperclip', "~> 4.3"
 
 gem 'aws-sdk', '~> 1.6'
 
+gem 'websocket-rails'
+
 gem 'rack-cors', require: 'rack/cors'
 
 group :production do
